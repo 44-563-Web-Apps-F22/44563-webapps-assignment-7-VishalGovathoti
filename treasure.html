@@ -169,6 +169,10 @@
         }
         document.getElementById("image13").src="help.jpg";
         treasureLocation=Math.floor(Math.random()*25);
+        while(treasureLocation==12)
+        {
+            treasureLocation=Math.floor(Math.random()*25);
+        }
         score=0;
         chestCount=0;
         document.getElementById("chests").innerHTML="Number of chests checked is"+chestCount;
