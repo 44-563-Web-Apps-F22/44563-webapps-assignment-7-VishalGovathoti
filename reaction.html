@@ -10,13 +10,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-  <h1>VishaL Govathoti reaction timer</h1>
+<h1>VishaL Govathoti reaction timer</h1>
 
   <p id="target">Your time</p>
   <p id="countdown">Count</p>
   <button type="button" onclick="startTime()">Start Timer</button>
   <button type="button" onclick="recordReact()">React Now</button>
+  <button type="button" onclick="startRandomTime()">Start Random Time</button>
+
+
   <script> 
     var myTime=undefined;
     function recordReact() {
@@ -48,6 +50,33 @@
       
   
     }
+    function startRandomTime()
+  {
+      startCount = Math.floor(Math.random() * (10 - 2 + 1) + 2)
+      for(let i=0;i<=startCount;i++)
+      {
+        setTimeout(function(){
+      document.getElementById('countdown').innerHTML=i;
+    }, (startCount-i)*1000)
+      }
+      setTimeout(function(){
+        if(myTime==undefined)
+        {
+      document.getElementById('target').innerHTML="Too Slow";
+        }
+        else
+        {
+            var buttonTime=Date.now();
+            console.log(buttonTime);
+            var difference=buttonTime-myTime;
+            document.getElementById('target').innerHTML="Time was "+difference;
+        }
+    },startCount*1000)
+    
+
+  }
+
+
   
 
     </script>
